@@ -1,0 +1,10 @@
+
+$ bats tests/run-and-output.bats
+1..6
+ok 1 run records the exit status of a success
+ok 2 the whole output is one string, newlines and all
+ok 3 the output is also there line by line
+ok 4 a pattern can stand in for an exact match
+ok 5 with --separate-stderr the error stream stands alone
+ok 6 without it, errors arrive mixed into the output
+[exit 0]

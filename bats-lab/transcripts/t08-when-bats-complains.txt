@@ -1,0 +1,52 @@
+
+$ bats tests/nope.bats
+ERROR: Test file "/home/hatch/workspace/bats-for-mere-mortals/bats-lab/tests/nope.bats" does not exist.
+1..1
+not ok 1 bats-gather-tests
+[exit 1]
+
+$ bats /home/hatch/workspace/bats-labwork/empty/
+ERROR: Found no tests. (Try `--allow-empty-suite`?)1..0
+[exit 1]
+
+$ bats --allow-empty-suite /home/hatch/workspace/bats-labwork/empty/
+1..0
+[exit 0]
+
+$ bats /home/hatch/workspace/bats-labwork/broken.bats
+1..1
+not ok 1 bats-gather-tests
+# /home/hatch/workspace/bats-labwork/broken.bats: line 5: syntax error near unexpected token `}'
+[exit 1]
+
+$ bats tests/zz-scratch.bats    (a scratch copy of run-and-output.bats with its bats_require_minimum_version line removed, deleted after this run)
+1..6
+ok 1 run records the exit status of a success
+ok 2 the whole output is one string, newlines and all
+ok 3 the output is also there line by line
+ok 4 a pattern can stand in for an exact match
+ok 5 with --separate-stderr the error stream stands alone
+ok 6 without it, errors arrive mixed into the output
+
+The following warnings were encountered during tests:
+BW02: Using flags on `run` requires at least BATS_VERSION=1.5.0. Use `bats_require_minimum_version 1.5.0` to fix this message.
+      (from function `bats_warn_minimum_guaranteed_version' in file /home/hatch/workspace/bats-labwork/prefix/lib/bats-core/warnings.bash, line 32,
+       from function `run' in file /home/hatch/workspace/bats-labwork/prefix/lib/bats-core/test_functions.bash, line 359,
+       in test file tests/zz-scratch.bats, line 33)
+[exit 0]
+
+$ env -u TERM bats --formatter pretty tests/temp-convert.bats
+tput: No value for $TERM and no -T specified
+[exit 2]
+
+$ bats --jobs 2 tests/temp-convert.bats
+1..5
+/home/hatch/workspace/bats-labwork/prefix/libexec/bats-core/bats-exec-suite: line 323: parallel: command not found
+# bats warning: Executed 0 instead of expected 5 tests
+[exit 1]
+
+$ bats ../bats-labwork/bad-load.bats    (a scratch file whose load names a helper that does not exist)
+1..1
+not ok 1 bats-gather-tests
+# bats_load_safe: Could not find '/home/hatch/workspace/bats-labwork/no-such-helper'[.bash]
+[exit 1]

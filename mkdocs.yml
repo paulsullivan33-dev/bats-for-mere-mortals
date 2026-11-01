@@ -1,0 +1,28 @@
+site_name: Bats for Mere Mortals
+site_description: A test framework for Bash scripts. Writing test files that state what a script should do, running them with one command, and reading a report that says pass, fail, or skip for every claim, with the exit code a build server can act on, and the limits stated plainly.
+site_url: https://paulsullivan33-dev.github.io/bats-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Bats Is: what-bats-is.md
+  - The Moving Parts: the-moving-parts.md
+  - Installing Bats: installing-bats.md
+  - Your First Tests: your-first-tests.md
+  - When a Test Fails: when-a-test-fails.md
+  - run and Output: run-and-output.md
+  - Setup and Teardown: setup-and-teardown.md
+  - Helpers and load: helpers-and-load.md
+  - Filtering and Selecting: filtering-and-selecting.md
+  - Formatters and Reports: formatters-and-reports.md
+  - Recipes: recipes.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

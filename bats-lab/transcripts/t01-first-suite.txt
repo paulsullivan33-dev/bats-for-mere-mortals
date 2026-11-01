@@ -1,0 +1,44 @@
+
+$ ./temp-convert.sh 100 C
+212.0 F
+[exit 0]
+
+$ ./temp-convert.sh 32 F
+0.0 C
+[exit 0]
+
+$ bats tests/temp-convert.bats
+1..5
+ok 1 boiling point of water in Fahrenheit
+ok 2 freezing point of water in Celsius
+ok 3 minus forty is the same in both scales
+ok 4 a value that is not a number is refused
+ok 5 an unknown scale is refused
+[exit 0]
+
+$ bats tests/
+1..23
+ok 1 a fixed stamp gives an exact name
+ok 2 the prefix is kept whole, spaces and all
+ok 3 the default stamp is the current time, in shape at least
+ok 4 an empty prefix is refused
+ok 5 run records the exit status of a success
+ok 6 the whole output is one string, newlines and all
+ok 7 the output is also there line by line
+ok 8 a pattern can stand in for an exact match
+ok 9 with --separate-stderr the error stream stands alone
+ok 10 without it, errors arrive mixed into the output
+ok 11 the shared file from setup_file is there
+ok 12 setup made the work folder for this test
+ok 13 the first test's teardown already ran
+ok 14 boiling point of water in Fahrenheit
+ok 15 freezing point of water in Celsius
+ok 16 minus forty is the same in both scales
+ok 17 a value that is not a number is refused
+ok 18 an unknown scale is refused
+ok 19 our own helper checks the status in words
+ok 20 our own helper finds text inside the output
+ok 21 bats-assert says the same things more formally
+ok 22 bats-assert can insist a failure happened
+ok 23 bats-assert reads the answer line by line
+[exit 0]

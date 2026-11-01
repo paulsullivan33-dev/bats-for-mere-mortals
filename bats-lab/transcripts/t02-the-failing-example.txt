@@ -1,0 +1,25 @@
+
+$ bats --formatter pretty failing-example.bats
+failing-example.bats
+ ✗ zero Celsius is thirty Fahrenheit (wrong on purpose)
+   (in test file failing-example.bats, line 12)
+     `[ "$output" = "30.0 F" ]' failed
+ ✗ a bad scale still exits zero (wrong on purpose)
+   (in test file failing-example.bats, line 17)
+     `[ "$status" -eq 0 ]' failed
+ - kelvin support (not yet, so skipped) (skipped: temp-convert.sh speaks only C and F for now)
+
+3 tests, 2 failures, 1 skipped
+
+[exit 1]
+
+$ bats failing-example.bats    (the same run, default formatter for a pipe: tap)
+1..3
+not ok 1 zero Celsius is thirty Fahrenheit (wrong on purpose)
+# (in test file failing-example.bats, line 12)
+#   `[ "$output" = "30.0 F" ]' failed
+not ok 2 a bad scale still exits zero (wrong on purpose)
+# (in test file failing-example.bats, line 17)
+#   `[ "$status" -eq 0 ]' failed
+ok 3 kelvin support (not yet, so skipped) # skip temp-convert.sh speaks only C and F for now
+[exit 1]

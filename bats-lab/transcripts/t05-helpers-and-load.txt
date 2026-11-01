@@ -1,0 +1,19 @@
+
+$ bats tests/with-helpers.bats
+1..5
+ok 1 our own helper checks the status in words
+ok 2 our own helper finds text inside the output
+ok 3 bats-assert says the same things more formally
+ok 4 bats-assert can insist a failure happened
+ok 5 bats-assert reads the answer line by line
+[exit 0]
+
+$ bats ../bats-labwork/helper-failure.bats    (a scratch file whose one test misuses assert_output_contains on purpose)
+1..1
+not ok 1 a helper failing, on purpose
+# (from function `assert_output_contains' in file test_helper/helper.bash, line 21,
+#  in test file /home/hatch/workspace/bats-labwork/helper-failure.bats, line 5)
+#   `assert_output_contains "999.9 F"' failed
+# expected output to contain: 999.9 F
+# actual output: 212.0 F
+[exit 1]

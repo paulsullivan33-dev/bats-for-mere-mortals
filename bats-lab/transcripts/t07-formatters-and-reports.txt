@@ -1,0 +1,50 @@
+
+$ bats --formatter pretty tests/temp-convert.bats
+temp-convert.bats
+ ✓ boiling point of water in Fahrenheit
+ ✓ freezing point of water in Celsius
+ ✓ minus forty is the same in both scales
+ ✓ a value that is not a number is refused
+ ✓ an unknown scale is refused
+
+5 tests, 0 failures
+
+[exit 0]
+
+$ bats --formatter tap13 tests/temp-convert.bats
+TAP version 13
+1..5
+ok 1 boiling point of water in Fahrenheit
+ok 2 freezing point of water in Celsius
+ok 3 minus forty is the same in both scales
+ok 4 a value that is not a number is refused
+ok 5 an unknown scale is refused
+[exit 0]
+
+$ bats --timing tests/temp-convert.bats
+1..5
+ok 1 boiling point of water in Fahrenheit in 13ms
+ok 2 freezing point of water in Celsius in 18ms
+ok 3 minus forty is the same in both scales in 12ms
+ok 4 a value that is not a number is refused in 9ms
+ok 5 an unknown scale is refused in 9ms
+[exit 0]
+
+$ bats --report-formatter junit --output ../bats-labwork/reports2 tests/temp-convert.bats
+1..5
+ok 1 boiling point of water in Fahrenheit # in 12 ms
+ok 2 freezing point of water in Celsius # in 13 ms
+ok 3 minus forty is the same in both scales # in 14 ms
+ok 4 a value that is not a number is refused # in 10 ms
+ok 5 an unknown scale is refused # in 13 ms
+[exit 0]
+
+$ head -8 ../bats-labwork/reports2/report.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites time="0.062">
+<testsuite name="temp-convert.bats" tests="5" failures="0" errors="0" skipped="0" time="0.062" timestamp="2026-11-01T02:30:41" hostname="htch-runtime">
+    <testcase classname="temp-convert.bats" name="boiling point of water in Fahrenheit" time="0.012" />
+    <testcase classname="temp-convert.bats" name="freezing point of water in Celsius" time="0.013" />
+    <testcase classname="temp-convert.bats" name="minus forty is the same in both scales" time="0.014" />
+    <testcase classname="temp-convert.bats" name="a value that is not a number is refused" time="0.010" />
+    <testcase classname="temp-convert.bats" name="an unknown scale is refused" time="0.013" />

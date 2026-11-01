@@ -1,0 +1,33 @@
+
+$ bash --version
+GNU bash, version 5.2.21(1)-release (x86_64-pc-linux-gnu)
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+[exit 0]
+
+$ curl -sLO https://github.com/bats-core/bats-core/archive/refs/tags/v1.14.0.tar.gz
+[exit 0]
+
+$ ls -la v1.14.0.tar.gz
+-rw-rw---- 1 root root 183385 Nov  1 02:30 v1.14.0.tar.gz
+[exit 0]
+
+$ tar xzf v1.14.0.tar.gz
+[exit 0]
+
+$ ./bats-core-1.14.0/install.sh /home/hatch/workspace/bats-labwork/t00/bats-prefix
+Installed Bats to /home/hatch/workspace/bats-labwork/t00/bats-prefix/bin/bats
+[exit 0]
+
+$ ./bats-prefix/bin/bats --version
+Bats 1.14.0
+[exit 0]
+
+$ command -v parallel
+[exit 1]
+
+$ command -v rush
+[exit 1]
